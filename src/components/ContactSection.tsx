@@ -173,7 +173,7 @@ export default function ContactSection() {
 
                     {/* title */}
                     <div className="relative overflow-hidden">
-                        <h1
+                        <h2
                             className="font-black tracking-tight leading-none
                             drop-shadow-[0_0_25px_rgba(0,191,255,0.15)]
                             text-white opacity-0
@@ -189,7 +189,7 @@ export default function ContactSection() {
                             >
                                 Let's Connect
                             </span>
-                        </h1>
+                        </h2>
                     </div>
                 </div>
 
@@ -425,9 +425,9 @@ export default function ContactSection() {
                                 {/* top */}
                                 <div className="space-y-3">
                                     <div className="flex items-baseline gap-3">
-                                        <h2 className="text-2xl font-black tracking-tight bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
+                                        <h3 className="text-2xl font-black tracking-tight bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
                                             Send Message
-                                        </h2>
+                                        </h3>
 
                                         <span className="text-xs uppercase tracking-widest text-white/25 font-mono">
                                             Direct
@@ -675,26 +675,20 @@ export default function ContactSection() {
                         <h4 className="text-xs uppercase tracking-[0.3em] text-white/50 font-semibold">Navigation</h4>
                         <div className="grid grid-cols-2 gap-2">
                             {[
-                                { label: "Home", id: "Home" },
-                                { label: "Education", id: "education" },
-                                { label: "Strategy", id: "strategy" },
-                                { label: "Portfolio", id: "showcase" },
-                                { label: "Contact", id: "contact" },
-                                { label: "About", path: "/about" },
+                                { label: "Home", href: "#Home" },
+                                { label: "Education", href: "#education" },
+                                { label: "Strategy", href: "#strategy" },
+                                { label: "Portfolio", href: "#showcase" },
+                                { label: "Contact", href: "#contact" },
+                                { label: "About", href: "/about" },
                             ].map((link) => (
-                                <button
+                                <a
                                     key={link.label}
-                                    onClick={() => {
-                                        if (link.id) {
-                                            document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
-                                        } else if (link.path) {
-                                            window.location.href = link.path;
-                                        }
-                                    }}
+                                    href={link.href}
                                     className="text-left text-xs text-white/40 hover:text-white transition-colors"
                                 >
                                     {link.label}
-                                </button>
+                                </a>
                             ))}
                         </div>
                     </div>

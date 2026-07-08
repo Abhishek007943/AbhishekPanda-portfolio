@@ -147,23 +147,26 @@ export default function BusinessStrategySection() {
         </motion.div>
 
         <div>
-          <motion.h1
+          <h2 className="sr-only">Business Strategy</h2>
+          <motion.div
             initial={{ opacity: 0, scale: 0.85, y: 50 }}
             animate={inView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.85, y: 50 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="font-extrabold leading-[1.05] tracking-tight text-white text-[clamp(56px,9vw,120px)]"
+            aria-hidden="true"
           >
             Business
-          </motion.h1>
+          </motion.div>
 
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, x: -80, rotate: -4 }}
             animate={inView ? { opacity: 1, x: 0, rotate: 0 } : { opacity: 0, x: -80, rotate: -4 }}
             transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className="font-extrabold leading-[1.05] tracking-tight text-[#D4AF37] text-[clamp(56px,9vw,120px)] mb-6"
+            aria-hidden="true"
           >
             Strategy
-          </motion.h1>
+          </motion.div>
         </div>
 
         <motion.p

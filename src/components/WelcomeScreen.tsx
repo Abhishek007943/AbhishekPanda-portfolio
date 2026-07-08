@@ -113,7 +113,7 @@ export default function WelcomeScreen() {
             </motion.span>
           </div>
 
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 70 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -124,7 +124,7 @@ export default function WelcomeScreen() {
             className="text-[clamp(24px,6vw,38px)] font-black tracking-tight leading-tight text-center"
           >
             Finance Portfolio
-          </motion.h1>
+          </motion.div>
         </div>
 
         <motion.p

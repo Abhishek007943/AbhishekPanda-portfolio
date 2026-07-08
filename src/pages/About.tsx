@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, Download } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import SeoHead from "@/components/SeoHead";
+import { BreadcrumbSchema, WebPageSchema } from "@/components/JsonLd";
 
 export default function About() {
-  const navigate = useNavigate();
   const text = "About Myself";
 
   const [displayedText, setDisplayedText] = useState("");
-  // TYPING EFFECT
+
   useEffect(() => {
     let index = 0;
     let interval: ReturnType<typeof setInterval>;
@@ -34,7 +34,35 @@ export default function About() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#05070A] overflow-hidden text-white px-4 sm:px-6 py-10">
+    <>
+      <SeoHead
+        title="About"
+        description="Learn about Abhishek Panda — MBA Finance candidate, business strategist, and investment research professional. Financial modeling, portfolio management, strategic leadership, and data-driven decision making."
+        canonical="https://abhishekpanda.com/about"
+        ogImage="https://abhishekpanda.com/assets/portarit.jpeg"
+        ogImageWidth="600"
+        ogImageHeight="600"
+        publishedTime="2024-01-01"
+        modifiedTime="2026-07-08"
+      />
+      <WebPageSchema
+        name="About | Abhishek Panda"
+        description="Learn about Abhishek Panda — MBA Finance candidate, business strategist, and investment research professional."
+        url="https://abhishekpanda.com/about"
+        datePublished="2024-01-01"
+        dateModified="2026-07-08"
+        breadcrumb={[
+          { name: "Home", url: "https://abhishekpanda.com/" },
+          { name: "About", url: "https://abhishekpanda.com/about" },
+        ]}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://abhishekpanda.com/" },
+          { name: "About", url: "https://abhishekpanda.com/about" },
+        ]}
+      />
+      <main className="relative min-h-screen bg-[#05070A] overflow-hidden text-white px-4 sm:px-6 py-10">
       {/* Animated background effects */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-[#00BFFF]/5 rounded-full blur-3xl opacity-20" />
@@ -52,17 +80,17 @@ export default function About() {
       </div>
 
       {/* BACK BUTTON */}
-      <motion.button
+      <motion.a
+        href="/"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        onClick={() => navigate(-1)}
         className="
           fixed
           top-5
           left-5
           z-50
-          flex
+          inline-flex
           items-center
           gap-2
           px-4
@@ -78,10 +106,11 @@ export default function About() {
           duration-300
           shadow-lg
         "
+        aria-label="Back to home page"
       >
-        <ArrowLeft size={18} />
+        <ArrowLeft size={18} aria-hidden="true" />
         <span className="hidden sm:inline">Back</span>
-      </motion.button>
+      </motion.a>
 
       {/* MAIN CONTENT */}
       <div className="relative z-20 flex flex-col items-center justify-center min-h-screen gap-8">
@@ -118,8 +147,9 @@ export default function About() {
           >
             <img
               src="/scroll-animation/ezgif-frame-100.png"
-              alt="Abhishek Panda"
+              alt="Abhishek Panda - MBA Finance candidate"
               className="w-full h-full object-cover"
+              loading="lazy"
             />
           </div>
 
@@ -306,13 +336,13 @@ export default function About() {
             shadow-[0_10px_40px_rgba(0,0,0,0.4)]
             hover:shadow-[0_15px_50px_rgba(212,175,55,0.1)]
           "
+          aria-label="Download Abhishek Panda Resume"
         >
-          <div className="flex items-center gap-3">
-            <Download size={16} />
-            <span className="text-xs tracking-[0.25em] uppercase font-semibold">Download Resume</span>
-          </div>
+          <Download size={16} aria-hidden="true" />
+          <span className="text-xs tracking-[0.25em] uppercase font-semibold">Download Resume</span>
         </motion.a>
       </div>
-    </div>
+    </main>
+    </>
   );
 }

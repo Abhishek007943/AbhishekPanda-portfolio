@@ -389,9 +389,9 @@ export default function ShowcaseSection() {
             <div className="w-10 h-px bg-white/20" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00BFFF] to-transparent animate-[lineMove_2s_linear_infinite]" />
           </div>
-          <span className="text-[10px] uppercase tracking-[0.45em] text-white/35 font-mono">
+          <h2 className="text-[10px] uppercase tracking-[0.45em] text-white/35 font-mono">
             Portfolio
-          </span>
+          </h2>
           <div className="relative overflow-hidden">
             <div className="w-10 h-px bg-white/20" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00BFFF] to-transparent animate-[lineMove_2s_linear_infinite]" />

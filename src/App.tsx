@@ -11,8 +11,10 @@ import Showcase from "./components/Showcase";
 import ContactSection from "@/components/ContactSection";
 import ScrollCanvas from "@/components/ScrollCanvas";
 import type { ScrollCanvasApi } from "@/components/ScrollCanvas";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Link } from "react-router-dom";
 import About from "./pages/About";
+import SeoHead from "@/components/SeoHead";
+import { PersonSchema, WebsiteSchema, WebPageSchema } from "@/components/JsonLd";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -177,167 +179,154 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={
-        <div className="min-h-screen bg-[#05070A] text-white overflow-x-hidden">
+        <>
+          <SeoHead
+            title="MBA Finance | Business Strategist"
+            description="Executive MBA Finance candidate specializing in business strategy, investment research, financial modeling, and data-driven decision making. Leading with Insight, Driving with Data."
+            canonical="https://abhishekpanda.com"
+            ogImage="https://abhishekpanda.com/assets/portarit.jpeg"
+            ogImageWidth="600"
+            ogImageHeight="600"
+            publishedTime="2024-01-01"
+            modifiedTime="2026-07-08"
+          />
+          <PersonSchema />
+          <WebsiteSchema />
+          <WebPageSchema
+            name="Abhishek Panda | MBA Finance | Business Strategist"
+            description="Executive MBA Finance candidate specializing in business strategy, investment research, financial modeling, and data-driven decision making."
+            url="https://abhishekpanda.com/"
+            datePublished="2024-01-01"
+            dateModified="2026-07-08"
+            breadcrumb={[
+              { name: "Home", url: "https://abhishekpanda.com/" },
+            ]}
+          />
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-lg focus:text-sm focus:font-semibold">
+            Skip to main content
+          </a>
+          <div id="main-content" className="min-h-screen bg-[#05070A] text-white overflow-x-hidden">
           <AnimatePresence>{showWelcome && <WelcomeScreen />}</AnimatePresence>
 
-          <nav className="fixed top-5 right-5 md:right-8 z-50 flex items-center gap-4 md:gap-8 px-4 md:px-8 py-2 md:py-3 rounded-full backdrop-blur-xl bg-[#05070A]/20 border border-white/10 shadow-lg">
-            <img src={favicon} alt="Logo" className="w-7 h-7 rounded-full object-cover hidden md:block" />
-            <ul className="hidden md:flex items-center gap-8 text-xs tracking-widest text-white/70 uppercase">
-              <li
-                onClick={() =>
-                  document.getElementById("Home")?.scrollIntoView({
-                    behavior: "smooth",
-                  })
-                }
-                className="relative hover:text-white transition-colors cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-              >
-                Home
-              </li>
-
-              <li
-                onClick={() => navigate("/about")}
-                className="relative hover:text-white transition-colors cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-              >
-                About
-              </li>
-
-              <li
-                onClick={() =>
-                  document.getElementById("education")?.scrollIntoView({
-                    behavior: "smooth",
-                  })
-                }
-                className="relative hover:text-white transition-colors cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-              >
-                Education
-              </li>
-
-              <li
-                onClick={() =>
-                  document.getElementById("strategy")?.scrollIntoView({
-                    behavior: "smooth",
-                  })
-                }
-                className="relative hover:text-white transition-colors cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-              >
-                Strategy
-              </li>
-
-              <li
-                onClick={() =>
-                  document.getElementById("showcase")?.scrollIntoView({
-                    behavior: "smooth",
-                  })
-                }
-                className="relative hover:text-white transition-colors cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-              >
-                Portfolio
-              </li>
-
-              <li
-                onClick={() =>
-                  document.getElementById("contact")?.scrollIntoView({
-                    behavior: "smooth",
-                  })
-                }
-                className="relative hover:text-white transition-colors cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-              >
-                Contact
-              </li>
-            </ul>
+          <header className="fixed top-5 right-5 md:right-8 z-50 flex items-center gap-4 md:gap-8 px-4 md:px-8 py-2 md:py-3 rounded-full backdrop-blur-xl bg-[#05070A]/20 border border-white/10 shadow-lg">
+            <img src={favicon} alt="Abhishek Panda" className="w-7 h-7 rounded-full object-cover hidden md:block" />
+            <nav className="hidden md:block" aria-label="Main navigation">
+              <ul className="flex items-center gap-8 text-xs tracking-widest text-white/70 uppercase">
+                <li>
+                  <a href="#Home"
+                    onClick={(e) => { e.preventDefault(); document.getElementById("Home")?.scrollIntoView({ behavior: "smooth" }); }}
+                    className="relative hover:text-white transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <Link to="/about"
+                    className="relative hover:text-white transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <a href="#education"
+                    onClick={(e) => { e.preventDefault(); document.getElementById("education")?.scrollIntoView({ behavior: "smooth" }); }}
+                    className="relative hover:text-white transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    Education
+                  </a>
+                </li>
+                <li>
+                  <a href="#strategy"
+                    onClick={(e) => { e.preventDefault(); document.getElementById("strategy")?.scrollIntoView({ behavior: "smooth" }); }}
+                    className="relative hover:text-white transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    Strategy
+                  </a>
+                </li>
+                <li>
+                  <a href="#showcase"
+                    onClick={(e) => { e.preventDefault(); document.getElementById("showcase")?.scrollIntoView({ behavior: "smooth" }); }}
+                    className="relative hover:text-white transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    Portfolio
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact"
+                    onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
+                    className="relative hover:text-white transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
 
             <button
               onClick={() => setMobileMenu(!mobileMenu)}
               className="md:hidden text-white"
+              aria-label={mobileMenu ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenu}
             >
               {mobileMenu ? <X size={20} /> : <Menu size={20} />}
             </button>
-          </nav>
+          </header>
 
 
           {mobileMenu && (
-            <div className="fixed inset-0 z-40 bg-[#05070A]/95 backdrop-blur-xl flex flex-col items-center justify-center gap-10 text-white uppercase tracking-[0.3em] text-sm md:hidden">
+            <nav className="fixed inset-0 z-40 bg-[#05070A]/95 backdrop-blur-xl flex flex-col items-center justify-center gap-10 text-white uppercase tracking-[0.3em] text-sm md:hidden" aria-label="Mobile navigation">
 
-              <div className="absolute top-30 text-center">
+              <div className="absolute top-30 text-center" aria-hidden="true">
                 <p className="text-[10px] text-white/40 tracking-[0.3em] mb-2">
                   TIME
                 </p>
 
-                <h2 className="text-2xl tracking-widest font-semibold">
+                <p className="text-2xl tracking-widest font-semibold">
                   {time}
-                </h2>
+                </p>
               </div>
 
-              <button
-                onClick={() => {
-                  document.getElementById("Home")?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                  setMobileMenu(false);
-                }}
+              <a href="#Home"
+                onClick={(e) => { e.preventDefault(); document.getElementById("Home")?.scrollIntoView({ behavior: "smooth" }); setMobileMenu(false); }}
                 className="relative after:absolute after:left-0 after:-bottom-2 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full"
               >
                 Home
-              </button>
+              </a>
 
-              <button
-                onClick={() => {
-                  navigate("/about");
-                  setMobileMenu(false);
-                }}
+              <Link to="/about" onClick={() => setMobileMenu(false)}
                 className="relative after:absolute after:left-0 after:-bottom-2 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full"
               >
                 About
-              </button>
+              </Link>
 
-              <button
-                onClick={() => {
-                  document.getElementById("education")?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                  setMobileMenu(false);
-                }}
+              <a href="#education"
+                onClick={(e) => { e.preventDefault(); document.getElementById("education")?.scrollIntoView({ behavior: "smooth" }); setMobileMenu(false); }}
                 className="relative after:absolute after:left-0 after:-bottom-2 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full"
               >
                 Education
-              </button>
+              </a>
 
-              <button
-                onClick={() => {
-                  document.getElementById("strategy")?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                  setMobileMenu(false);
-                }}
+              <a href="#strategy"
+                onClick={(e) => { e.preventDefault(); document.getElementById("strategy")?.scrollIntoView({ behavior: "smooth" }); setMobileMenu(false); }}
                 className="relative after:absolute after:left-0 after:-bottom-2 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full"
               >
                 Strategy
-              </button>
+              </a>
 
-              <button
-                onClick={() => {
-                  document.getElementById("showcase")?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                  setMobileMenu(false);
-                }}
+              <a href="#showcase"
+                onClick={(e) => { e.preventDefault(); document.getElementById("showcase")?.scrollIntoView({ behavior: "smooth" }); setMobileMenu(false); }}
                 className="relative after:absolute after:left-0 after:-bottom-2 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full"
               >
                 Portfolio
-              </button>
+              </a>
 
-              <button
-                onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                  setMobileMenu(false);
-                }}
+              <a href="#contact"
+                onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); setMobileMenu(false); }}
                 className="relative after:absolute after:left-0 after:-bottom-2 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full"
               >
                 Contact
-              </button>
-            </div>
+              </a>
+            </nav>
           )}
 
           <section
@@ -376,9 +365,10 @@ export default function App() {
 
             <div className="relative z-10 w-full h-full flex flex-col justify-between px-6 md:px-12 pt-24 pb-10">
 
-              <div className="flex justify-between items-start w-full">
+              <h1 className="sr-only">Abhishek Panda | MBA Finance | Business Strategist</h1>
+              <div className="flex justify-between items-start w-full" aria-hidden="true">
                 <div className="relative">
-                  <h1
+                  <div
                     ref={nameRef}
                     onClick={() => setColorMode((prev) => (prev + 1) % colors.length)}
                     className={`font-display uppercase leading-[0.85] tracking-[-0.03em] text-[14vw] sm:text-[16vw] md:text-[10vw] lg:text-[10rem] cursor-pointer transition-all duration-300 ${colors[colorMode]}`}
@@ -398,9 +388,9 @@ export default function App() {
                         )}
                       </span>
                     ))}
-                  </h1>
+                  </div>
                 </div>
-                <h1
+                <div
                   ref={pandaRef}
 className={`font-display uppercase leading-[0.85] tracking-[-0.03em] text-[14vw] 
 sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16 sm:-ml-24 md:-ml-160 ${colors[colorMode]}`}
@@ -420,7 +410,7 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
                       )}
                     </span>
                   ))}
-                </h1>
+                </div>
               </div>
 
               <div ref={ctaRef} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mt-auto">
@@ -440,17 +430,20 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
                     href="https://www.linkedin.com/in/abhishek-panda01"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 border border-[#D4AF37]/30 text-[#D4AF37] px-6 py-3 text-xs tracking-[0.25em] uppercase font-semibold hover:bg-[#D4AF37] hover:text-[#05070A] transition-all duration-300 rounded-full"
+                    aria-label="Connect on LinkedIn"
                   >
-                    <button className="inline-flex items-center gap-3 border border-[#D4AF37]/30 text-[#D4AF37] px-6 py-3 text-xs tracking-[0.25em] uppercase font-semibold hover:bg-[#D4AF37] hover:text-[#05070A] transition-all duration-300 rounded-full">
-                      Let's Connect
-                      <ArrowUpRight size={16} />
-                    </button>
+                    Let's Connect
+                    <ArrowUpRight size={16} aria-hidden="true" />
                   </a>
-                  <a href="assets/Resume2.0.pdf" download="assets/Resume2.0.pdf">
-                    <button className="inline-flex items-center gap-3 border border-white/20 text-white px-6 py-3 text-xs tracking-[0.25em] uppercase font-semibold hover:bg-white hover:text-black transition-all duration-300 rounded-full">
-                      Download Resume
-                      <Download size={16} />
-                    </button>
+                  <a
+                    href="/assets/Resume2.0.pdf"
+                    download="Abhishek_Panda_Resume.pdf"
+                    className="inline-flex items-center gap-3 border border-white/20 text-white px-6 py-3 text-xs tracking-[0.25em] uppercase font-semibold hover:bg-white hover:text-black transition-all duration-300 rounded-full"
+                    aria-label="Download Resume PDF"
+                  >
+                    Download Resume
+                    <Download size={16} aria-hidden="true" />
                   </a>
                 </div>
               </div>
@@ -668,7 +661,8 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
           <section id="contact">
             <ContactSection />
           </section>
-        </div>
+          </div>
+        </>
       }
       />
 
