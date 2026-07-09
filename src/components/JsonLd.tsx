@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://abhishekpanda.com";
+const SITE_URL = "https://abhishekpanda.redirectme.net";
 
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (

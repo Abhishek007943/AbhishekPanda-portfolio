@@ -183,23 +183,23 @@ export default function App() {
           <SeoHead
             title="MBA Finance | Business Strategist"
             description="Executive MBA Finance candidate specializing in business strategy, investment research, financial modeling, and data-driven decision making. Leading with Insight, Driving with Data."
-            canonical="https://abhishekpanda.com"
-            ogImage="https://abhishekpanda.com/assets/portarit.jpeg"
+            canonical="https://abhishekpanda.redirectme.net"
+            ogImage="https://abhishekpanda.redirectme.net/assets/portarit.jpeg"
             ogImageWidth="600"
             ogImageHeight="600"
             publishedTime="2024-01-01"
-            modifiedTime="2026-07-08"
+            modifiedTime="2026-07-09"
           />
           <PersonSchema />
           <WebsiteSchema />
           <WebPageSchema
             name="Abhishek Panda | MBA Finance | Business Strategist"
             description="Executive MBA Finance candidate specializing in business strategy, investment research, financial modeling, and data-driven decision making."
-            url="https://abhishekpanda.com/"
+            url="https://abhishekpanda.redirectme.net/"
             datePublished="2024-01-01"
-            dateModified="2026-07-08"
+            dateModified="2026-07-09"
             breadcrumb={[
-              { name: "Home", url: "https://abhishekpanda.com/" },
+              { name: "Home", url: "https://abhishekpanda.redirectme.net/" },
             ]}
           />
           <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-lg focus:text-sm focus:font-semibold">

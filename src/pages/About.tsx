@@ -38,54 +38,54 @@ export default function About() {
       <SeoHead
         title="About"
         description="Learn about Abhishek Panda — MBA Finance candidate, business strategist, and investment research professional. Financial modeling, portfolio management, strategic leadership, and data-driven decision making."
-        canonical="https://abhishekpanda.com/about"
-        ogImage="https://abhishekpanda.com/assets/portarit.jpeg"
+        canonical="https://abhishekpanda.redirectme.net/about"
+        ogImage="https://abhishekpanda.redirectme.net/assets/portarit.jpeg"
         ogImageWidth="600"
         ogImageHeight="600"
         publishedTime="2024-01-01"
-        modifiedTime="2026-07-08"
+        modifiedTime="2026-07-09"
       />
       <WebPageSchema
         name="About | Abhishek Panda"
         description="Learn about Abhishek Panda — MBA Finance candidate, business strategist, and investment research professional."
-        url="https://abhishekpanda.com/about"
+        url="https://abhishekpanda.redirectme.net/about"
         datePublished="2024-01-01"
-        dateModified="2026-07-08"
+        dateModified="2026-07-09"
         breadcrumb={[
-          { name: "Home", url: "https://abhishekpanda.com/" },
-          { name: "About", url: "https://abhishekpanda.com/about" },
+          { name: "Home", url: "https://abhishekpanda.redirectme.net/" },
+          { name: "About", url: "https://abhishekpanda.redirectme.net/about" },
         ]}
       />
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://abhishekpanda.com/" },
-          { name: "About", url: "https://abhishekpanda.com/about" },
+          { name: "Home", url: "https://abhishekpanda.redirectme.net/" },
+          { name: "About", url: "https://abhishekpanda.redirectme.net/about" },
         ]}
       />
       <main className="relative min-h-screen bg-[#05070A] overflow-hidden text-white px-4 sm:px-6 py-10">
-      {/* Animated background effects */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#00BFFF]/5 rounded-full blur-3xl opacity-20" />
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-[#D4AF37]/5 rounded-full blur-3xl opacity-20" />
-        <div
-          className="absolute inset-0 opacity-[0.02] pointer-events-none"
-          style={{
-            backgroundImage: `
+        {/* Animated background effects */}
+        <div className="fixed inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#00BFFF]/5 rounded-full blur-3xl opacity-20" />
+          <div className="absolute bottom-20 right-10 w-72 h-72 bg-[#D4AF37]/5 rounded-full blur-3xl opacity-20" />
+          <div
+            className="absolute inset-0 opacity-[0.02] pointer-events-none"
+            style={{
+              backgroundImage: `
               linear-gradient(rgba(0,191,255,0.06) 1px, transparent 1px),
               linear-gradient(90deg, rgba(0,191,255,0.06) 1px, transparent 1px)
             `,
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
+              backgroundSize: "60px 60px",
+            }}
+          />
+        </div>
 
-      {/* BACK BUTTON */}
-      <motion.a
-        href="/"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        className="
+        {/* BACK BUTTON */}
+        <motion.a
+          href="/"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="
           fixed
           top-5
           left-5
@@ -106,27 +106,27 @@ export default function About() {
           duration-300
           shadow-lg
         "
-        aria-label="Back to home page"
-      >
-        <ArrowLeft size={18} aria-hidden="true" />
-        <span className="hidden sm:inline">Back</span>
-      </motion.a>
-
-      {/* MAIN CONTENT */}
-      <div className="relative z-20 flex flex-col items-center justify-center min-h-screen gap-8">
-
-        {/* IMAGE SECTION */}
-        <motion.div
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="flex flex-col items-center"
+          aria-label="Back to home page"
         >
-          <div
-            className="
+          <ArrowLeft size={18} aria-hidden="true" />
+          <span className="hidden sm:inline">Back</span>
+        </motion.a>
+
+        {/* MAIN CONTENT */}
+        <div className="relative z-20 flex flex-col items-center justify-center min-h-screen gap-8">
+
+          {/* IMAGE SECTION */}
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="flex flex-col items-center"
+          >
+            <div
+              className="
               w-[200px]
               sm:w-[280px]
               md:w-[320px]
@@ -144,18 +144,18 @@ export default function About() {
               transition-all
               duration-300
             "
-          >
-            <img
-              src="/scroll-animation/ezgif-frame-100.png"
-              alt="Abhishek Panda - MBA Finance candidate"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
+            >
+              <img
+                src="/scroll-animation/ezgif-frame-100.png"
+                alt="Abhishek Panda - MBA Finance candidate"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
 
-          {/* DIVIDER LINE */}
-          <div
-            className="
+            {/* DIVIDER LINE */}
+            <div
+              className="
               mt-6
               h-[1px]
               bg-gradient-to-r
@@ -166,19 +166,19 @@ export default function About() {
               sm:w-[400px]
               md:w-[500px]
             "
-          />
-        </motion.div>
+            />
+          </motion.div>
 
-        {/* GLASS BOX CONTAINER */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1,
-            delay: 0.2,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="
+          {/* GLASS BOX CONTAINER */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1,
+              delay: 0.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="
             relative
             w-full
             max-w-4xl
@@ -194,14 +194,14 @@ export default function About() {
             shadow-[0_20px_70px_rgba(0,0,0,0.5)]
             group
           "
-        >
-          {/* GLASS EFFECT */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#00BFFF]/5 via-transparent to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+          >
+            {/* GLASS EFFECT */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00BFFF]/5 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
-          {/* HEADER SECTION */}
-          <div
-            className="
+            {/* HEADER SECTION */}
+            <div
+              className="
               relative
               z-20
               flex
@@ -215,24 +215,24 @@ export default function About() {
               bg-black/30
               backdrop-blur-2xl
             "
-          >
-            <h1
-              className="
+            >
+              <h1
+                className="
                 text-3xl
                 sm:text-4xl
                 md:text-5xl
                 font-extrabold
                 tracking-tight
               "
-            >
-              {displayedText}
-              <span className="animate-pulse ml-2">|</span>
-            </h1>
-          </div>
+              >
+                {displayedText}
+                <span className="animate-pulse ml-2">|</span>
+              </h1>
+            </div>
 
-          {/* SCROLLABLE CONTENT */}
-          <div
-            className="
+            {/* SCROLLABLE CONTENT */}
+            <div
+              className="
               relative
               z-10
               h-[calc(100%-80px)]
@@ -246,9 +246,9 @@ export default function About() {
               scrollbar-thumb-white/10
               hover:scrollbar-thumb-white/20
             "
-          >
-            <div
-              className="
+            >
+              <div
+                className="
                 text-white/70
                 text-sm
                 sm:text-base
@@ -256,63 +256,63 @@ export default function About() {
                 tracking-wide
                 space-y-6
               "
-            >
-              <p>
-                I'm Completed my MBA with a specialization in Finance, driven by a passion for
-                understanding how markets work and how strategic financial decisions shape the business world.
-              </p>
+              >
+                <p>
+                  I'm Completed my MBA with a specialization in Finance, driven by a passion for
+                  understanding how markets work and how strategic financial decisions shape the business world.
+                </p>
 
-              <p>
-                My journey into finance began during my Bachelor's in Commerce, where I discovered that I had a natural
-                aptitude for quantitative analysis and strategic thinking. What started as academic curiosity quickly
-                evolved into a deep professional interest in investment research, portfolio management, and corporate finance.
-              </p>
+                <p>
+                  My journey into finance began during my Bachelor's in Commerce, where I discovered that I had a natural
+                  aptitude for quantitative analysis and strategic thinking. What started as academic curiosity quickly
+                  evolved into a deep professional interest in investment research, portfolio management, and corporate finance.
+                </p>
 
-              <p>
-                Today, I specialize in financial modeling, data-driven investment analysis, and business strategy.
-                I enjoy building complex financial models that help uncover value, assess risk, and guide
-                executive decision-making.
-              </p>
+                <p>
+                  Today, I specialize in financial modeling, data-driven investment analysis, and business strategy.
+                  I enjoy building complex financial models that help uncover value, assess risk, and guide
+                  executive decision-making.
+                </p>
 
-              <p>
-                Throughout my internships at Autoliv Limietd, I've had the
-                opportunity to work on Variance Analysis & Reconciliation Analysis, and financial Budgeting & Forecasting —
-                experiences that have shaped my understanding of what it takes to drive business growth.
-              </p>
+                <p>
+                  Throughout my internships at Autoliv Limietd, I've had the
+                  opportunity to work on Variance Analysis & Reconciliation Analysis, and financial Budgeting & Forecasting —
+                  experiences that have shaped my understanding of what it takes to drive business growth.
+                </p>
 
-              <p>
-                I'm particularly interested in the intersection of finance and technology, especially how data
-                analytics and AI are transforming investment management and risk assessment.
-              </p>
+                <p>
+                  I'm particularly interested in the intersection of finance and technology, especially how data
+                  analytics and AI are transforming investment management and risk assessment.
+                </p>
 
-              <p>
-                My aim is to step into a leadership role in investment banking
-                or corporate strategy, where I can apply my skills to high-impact financial decisions and
-                help organizations navigate complex market environments.
-              </p>
+                <p>
+                  My aim is to step into a leadership role in investment banking
+                  or corporate strategy, where I can apply my skills to high-impact financial decisions and
+                  help organizations navigate complex market environments.
+                </p>
 
-              <p>
-                I know there's still so much to learn, and that's what excites me most about this field.
-                Every market movement tells a story, and I want to be someone who can read, interpret,
-                and act on those stories.
-              </p>
+                <p>
+                  I know there's still so much to learn, and that's what excites me most about this field.
+                  Every market movement tells a story, and I want to be someone who can read, interpret,
+                  and act on those stories.
+                </p>
 
-              <p>
-                For me, finance is not just a career — it's a lens through which I see and understand
-                the world of business, growth, and value creation.
-              </p>
+                <p>
+                  For me, finance is not just a career — it's a lens through which I see and understand
+                  the world of business, growth, and value creation.
+                </p>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* DOWNLOAD BUTTON */}
-        <motion.a
-          href="/assets/Resume2.0.pdf"
-          download="Abhishek_Panda_Resume.pdf"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="
+          {/* DOWNLOAD BUTTON */}
+          <motion.a
+            href="/assets/Resume2.0.pdf"
+            download="Abhishek_Panda_Resume.pdf"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="
             group
             relative
             overflow-hidden
@@ -336,13 +336,13 @@ export default function About() {
             shadow-[0_10px_40px_rgba(0,0,0,0.4)]
             hover:shadow-[0_15px_50px_rgba(212,175,55,0.1)]
           "
-          aria-label="Download Abhishek Panda Resume"
-        >
-          <Download size={16} aria-hidden="true" />
-          <span className="text-xs tracking-[0.25em] uppercase font-semibold">Download Resume</span>
-        </motion.a>
-      </div>
-    </main>
+            aria-label="Download Abhishek Panda Resume"
+          >
+            <Download size={16} aria-hidden="true" />
+            <span className="text-xs tracking-[0.25em] uppercase font-semibold">Download Resume</span>
+          </motion.a>
+        </div>
+      </main>
     </>
   );
 }

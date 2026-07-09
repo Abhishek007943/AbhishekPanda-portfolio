@@ -13,7 +13,7 @@ interface SeoHeadProps {
   modifiedTime?: string;
 }
 
-const SITE_URL = "https://abhishekpanda.com";
+const SITE_URL = "https://abhishekpanda.redirectme.net";
 const SITE_NAME = "Abhishek Panda";
 const TWITTER_HANDLE = "@abhishekpanda";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/portarit.jpeg`;
@@ -65,7 +65,7 @@ export default function SeoHead({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
       <meta name="twitter:image:alt" content={fullTitle} />
-      <meta name="twitter:domain" content="abhishekpanda.com" />
+      <meta name="twitter:domain" content="abhishekpanda.redirectme.net" />
 
       <meta property="article:author" content="https://www.linkedin.com/in/abhishek-panda01" />
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
