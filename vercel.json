@@ -1,10 +1,7 @@
 {
   "cleanUrls": true,
+  "redirects": [],
   "rewrites": [
-    {
-      "source": "/(sitemap.xml|robots.txt|manifest.json|favicon.jpeg|googlee405a0af42495f4e.html)",
-      "destination": "/$1"
-    },
     {
       "source": "/assets/(.*)",
       "destination": "/assets/$1"
@@ -13,6 +10,16 @@
       "source": "/(.*)",
       "destination": "/"
     }
+  ],
+  "headers": [
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        }
+      ]
+    }
   ]
 }
-
