@@ -38,6 +38,7 @@ export default function About() {
       <SeoHead
         title="About"
         description="Learn about Abhishek Panda — MBA Finance professional, business analyst, and finance strategist. Explore portfolio, education, skills, and professional journey."
+        keywords="Abhishek Panda, About Abhishek Panda, MBA Finance, Finance Professional, Financial Analyst, Education, Autoliv"
         canonical="https://pandaabhishek.vercel.app/about"
         ogImage="https://pandaabhishek.vercel.app/assets/portarit.jpeg"
         ogImageWidth="600"

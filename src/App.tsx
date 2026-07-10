@@ -1,6 +1,6 @@
 import { ArrowUpRight, Download, Menu, X } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import favicon from "/favicon.jpeg";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,7 +11,7 @@ import Showcase from "./components/Showcase";
 import ContactSection from "@/components/ContactSection";
 import ScrollCanvas from "@/components/ScrollCanvas";
 import type { ScrollCanvasApi } from "@/components/ScrollCanvas";
-import { Routes, Route, useNavigate, Link } from "react-router-dom";
+import { Routes, Route, useNavigate, Link, useLocation } from "react-router-dom";
 import About from "./pages/About";
 import SeoHead from "@/components/SeoHead";
 import { PersonSchema, WebsiteSchema, WebPageSchema } from "@/components/JsonLd";
@@ -30,6 +30,7 @@ const logos = [
 ];
 
 export default function App() {
+  const location = useLocation();
   const [showWelcome, setShowWelcome] = useState(true);
   const [time, setTime] = useState("");
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -177,13 +178,20 @@ export default function App() {
   }, []);
 
   return (
-    <Routes>
-      <Route path="/" element={
-        <>
-          <SeoHead
-            title="Abhishek Panda | MBA Finance Professional | Portfolio"
-            description="Abhishek Panda is an MBA Finance professional with expertise in financial analysis, business strategy, and corporate finance. Explore portfolio, projects, and insights."
-            canonical="https://pandaabhishek.vercel.app"
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <SeoHead
+              title="Abhishek Panda | MBA Finance Professional | Portfolio"
+              description="Abhishek Panda is an MBA Finance professional with expertise in financial analysis, business strategy, and corporate finance. Explore portfolio, projects, and insights."
+              keywords="Abhishek Panda, MBA Finance, Finance Professional, Financial Analyst, Business Strategy, Portfolio"
+              canonical="https://pandaabhishek.vercel.app"
             ogImage="https://pandaabhishek.vercel.app/assets/portarit.jpeg"
             ogImageWidth="600"
             ogImageHeight="600"
@@ -719,12 +727,22 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
             <ContactSection />
           </section>
           </div>
-        </>
+        </motion.div>
       }
       />
 
-      <Route path="/about" element={<About />} />
+      <Route path="/about" element={
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -15 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <About />
+        </motion.div>
+      } />
     </Routes>
+  </AnimatePresence>
 
   );
 }

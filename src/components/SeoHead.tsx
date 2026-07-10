@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 interface SeoHeadProps {
   title: string;
   description: string;
+  keywords?: string;
   canonical?: string;
   ogImage?: string;
   ogImageWidth?: string;
@@ -21,6 +22,7 @@ const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/portarit.jpeg`;
 export default function SeoHead({
   title,
   description,
+  keywords,
   canonical,
   ogImage = DEFAULT_OG_IMAGE,
   ogImageWidth = "600",
@@ -32,11 +34,14 @@ export default function SeoHead({
 }: SeoHeadProps) {
   const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
   const url = canonical || SITE_URL;
+  const defaultKeywords = "Abhishek Panda, MBA Finance, Finance Professional, Financial Analyst, Business Strategy, Portfolio";
+  const finalKeywords = keywords || defaultKeywords;
 
   return (
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      <meta name="keywords" content={finalKeywords} />
       <link rel="canonical" href={url} />
 
       <meta name="referrer" content="strict-origin-when-cross-origin" />
