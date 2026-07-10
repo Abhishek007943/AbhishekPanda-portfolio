@@ -181,25 +181,25 @@ export default function App() {
       <Route path="/" element={
         <>
           <SeoHead
-            title="MBA Finance | Business Strategist"
-            description="Executive MBA Finance candidate specializing in business strategy, investment research, financial modeling, and data-driven decision making. Leading with Insight, Driving with Data."
-            canonical="https://abhishekpanda.redirectme.net"
-            ogImage="https://abhishekpanda.redirectme.net/assets/portarit.jpeg"
+            title="Abhishek Panda | MBA Finance Professional | Portfolio"
+            description="Abhishek Panda is an MBA Finance professional with expertise in financial analysis, business strategy, and corporate finance. Explore portfolio, projects, and insights."
+            canonical="https://pandaabhishek.vercel.app"
+            ogImage="https://pandaabhishek.vercel.app/assets/portarit.jpeg"
             ogImageWidth="600"
             ogImageHeight="600"
             publishedTime="2024-01-01"
-            modifiedTime="2026-07-09"
+            modifiedTime="2026-07-10"
           />
           <PersonSchema />
           <WebsiteSchema />
           <WebPageSchema
-            name="Abhishek Panda | MBA Finance | Business Strategist"
-            description="Executive MBA Finance candidate specializing in business strategy, investment research, financial modeling, and data-driven decision making."
-            url="https://abhishekpanda.redirectme.net/"
+            name="Abhishek Panda | MBA Finance Professional | Portfolio"
+            description="Abhishek Panda is an MBA Finance professional with expertise in financial analysis, business strategy, and corporate finance. Explore portfolio, projects, and insights."
+            url="https://pandaabhishek.vercel.app/"
             datePublished="2024-01-01"
-            dateModified="2026-07-09"
+            dateModified="2026-07-10"
             breadcrumb={[
-              { name: "Home", url: "https://abhishekpanda.redirectme.net/" },
+              { name: "Home", url: "https://pandaabhishek.vercel.app/" },
             ]}
           />
           <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-lg focus:text-sm focus:font-semibold">
@@ -365,7 +365,7 @@ export default function App() {
 
             <div className="relative z-10 w-full h-full flex flex-col justify-between px-6 md:px-12 pt-24 pb-10">
 
-              <h1 className="sr-only">Abhishek Panda | MBA Finance | Business Strategist</h1>
+              <div className="sr-only">Abhishek Panda | MBA Finance Professional | Portfolio</div>
               <div className="flex justify-between items-start w-full" aria-hidden="true">
                 <div className="relative">
                   <div
@@ -478,6 +478,63 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
               ))}
             </div>
           </div>
+
+          {/* ─── PROFESSIONAL SUMMARY (SEO SECTION) ─── */}
+          <section id="about-overview" className="relative w-full min-h-[50vh] bg-[#05070A] text-white overflow-hidden px-6 md:px-20 py-16 md:py-24 border-t border-white/5">
+            <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{
+              backgroundImage: `linear-gradient(rgba(0,191,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,191,255,0.06) 1px, transparent 1px)`,
+              backgroundSize: "60px 60px",
+            }} />
+            <div className="absolute bottom-10 right-10 w-[300px] h-[300px] bg-[#D4AF37]/5 blur-[120px] rounded-full pointer-events-none" />
+
+            <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+              <div className="w-full md:w-2/3 space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="h-px w-10 bg-gradient-to-r from-[#00BFFF] to-transparent" />
+                  <span className="text-[10px] uppercase tracking-[0.4em] text-[#00BFFF] font-mono">Professional Profile</span>
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
+                  Abhishek Panda
+                </h1>
+                <h2 className="text-xl md:text-2xl font-semibold text-[#D4AF37] font-[Poppins]">
+                  MBA Finance Professional
+                </h2>
+                <div className="text-white/70 text-base leading-relaxed space-y-4 font-sans font-normal tracking-wide">
+                  <p>
+                    <strong>Abhishek Panda</strong> is an ambitious and results-driven MBA Finance professional who blends quantitative analytical skills with strategic business insights. With a strong academic background comprising a Bachelor of Commerce in Accountancy and an MBA specializing in Finance and Analytics, <strong>Abhishek Panda</strong> has built a comprehensive understanding of corporate finance, asset valuation, investment management, and macroeconomic analysis. Over the course of his professional preparation, he has developed deep expertise in financial modeling, forecasting, variance analysis, and market research. He is highly proficient in leveraging analytical tools like advanced Microsoft Excel, Power BI, Python, and SQL to translate complex financial datasets into actionable business recommendations.
+                  </p>
+                  <p>
+                    Throughout his career, <strong>Abhishek Panda</strong> has focused on how sound financial decisions drive corporate strategy and stakeholder value. His practical experience is backed by a finance internship at Autoliv Limited, where he actively contributed to financial reporting, budgeting, reconciliation, and variance analysis. This role allowed him to apply corporate finance theories directly to operational business scenarios, enhancing his ability to identify cost-saving opportunities and efficiency improvements. As a finance analyst and strategy enthusiast, <strong>Abhishek Panda</strong> continuously monitors global financial markets, emerging fintech trends, and corporate restructurings to stay at the forefront of the industry.
+                  </p>
+                  <p>
+                    Looking ahead, the primary career goal of <strong>Abhishek Panda</strong> is to secure a challenging role in investment banking, corporate strategy, or financial advisory, where he can assist companies in making high-stakes decisions such as capital allocation, mergers and acquisitions, and risk management. By joining a forward-looking financial institution or corporate development team, <strong>Abhishek Panda</strong> aims to apply his financial acumen and analytical rigor to solve complex business challenges. Driven by a commitment to continuous learning and professional excellence, he is dedicated to delivering high-impact value and fostering sustainable business growth.
+                  </p>
+                </div>
+                <div className="pt-4">
+                  <Link
+                    to="/about"
+                    className="inline-flex items-center gap-3 border border-white/20 text-white hover:border-[#00BFFF]/50 hover:text-[#00BFFF] px-6 py-3 text-xs tracking-[0.25em] uppercase font-semibold transition-all duration-300 rounded-full bg-white/5 backdrop-blur-xl"
+                  >
+                    Read My Full Biography
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </Link>
+                </div>
+              </div>
+              <div className="w-full md:w-1/3 flex justify-center">
+                <div className="relative group p-1 rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl max-w-[280px]">
+                  <img
+                    src="/scroll-animation/ezgif-frame-100.png"
+                    alt="Abhishek Panda"
+                    className="rounded-2xl w-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  />
+                  <div className="absolute -bottom-4 -right-4 p-4 rounded-2xl bg-[#07111F]/90 border border-white/10 backdrop-blur-md text-center">
+                    <p className="text-xl font-bold text-[#D4AF37] leading-none">MBA</p>
+                    <p className="text-[8px] uppercase tracking-wider text-white/50 mt-1">Finance & Analytics</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/* ─── EDUCATION SECTION ─── */}
           <section id="education" className="relative w-full min-h-screen bg-[#05070A] text-white overflow-hidden px-6 md:px-20 py-20 md:py-28">

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://abhishekpanda.redirectme.net";
+const SITE_URL = "https://pandaabhishek.vercel.app";
 
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
@@ -19,15 +19,14 @@ export function PersonSchema() {
     familyName: "Panda",
     alternateName: "Abhishek Panda",
     description:
-      "Executive MBA Finance candidate. Business strategist specializing in financial modeling, investment research, and data-driven decision making.",
+      "MBA Finance professional specializing in financial analysis and business strategy.",
     image: `${SITE_URL}/assets/portarit.jpeg`,
     url: SITE_URL,
     sameAs: [
-      "https://www.linkedin.com/in/abhishek-panda01",
-      "https://twitter.com/abhishekpanda",
       "https://github.com/Abhishek007943",
+      "https://linkedin.com/in/abhishek-panda01"
     ],
-    jobTitle: "MBA Finance | Business Strategist",
+    jobTitle: "MBA Finance Professional",
     knowsAbout: [
       "Corporate Finance",
       "Investment Management",

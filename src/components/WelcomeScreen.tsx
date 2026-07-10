@@ -150,7 +150,7 @@ export default function WelcomeScreen() {
         >
           <motion.span
             initial={{ width: "0ch" }}
-            animate={{ width: "28ch" }}
+            animate={{ width: "24ch" }}
             transition={{
               delay: 2.2,
               duration: 2,
@@ -158,7 +158,7 @@ export default function WelcomeScreen() {
             }}
             className="inline-block overflow-hidden whitespace-nowrap"
           >
-            abhishekpanda.redirectme.net
+            pandaabhishek.vercel.app
           </motion.span>
 
           <motion.span

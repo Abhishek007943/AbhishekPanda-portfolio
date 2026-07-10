@@ -37,29 +37,29 @@ export default function About() {
     <>
       <SeoHead
         title="About"
-        description="Learn about Abhishek Panda — MBA Finance candidate, business strategist, and investment research professional. Financial modeling, portfolio management, strategic leadership, and data-driven decision making."
-        canonical="https://abhishekpanda.redirectme.net/about"
-        ogImage="https://abhishekpanda.redirectme.net/assets/portarit.jpeg"
+        description="Learn about Abhishek Panda — MBA Finance professional, business analyst, and finance strategist. Explore portfolio, education, skills, and professional journey."
+        canonical="https://pandaabhishek.vercel.app/about"
+        ogImage="https://pandaabhishek.vercel.app/assets/portarit.jpeg"
         ogImageWidth="600"
         ogImageHeight="600"
         publishedTime="2024-01-01"
-        modifiedTime="2026-07-09"
+        modifiedTime="2026-07-10"
       />
       <WebPageSchema
         name="About | Abhishek Panda"
-        description="Learn about Abhishek Panda — MBA Finance candidate, business strategist, and investment research professional."
-        url="https://abhishekpanda.redirectme.net/about"
+        description="Learn about Abhishek Panda — MBA Finance professional, business analyst, and finance strategist."
+        url="https://pandaabhishek.vercel.app/about"
         datePublished="2024-01-01"
-        dateModified="2026-07-09"
+        dateModified="2026-07-10"
         breadcrumb={[
-          { name: "Home", url: "https://abhishekpanda.redirectme.net/" },
-          { name: "About", url: "https://abhishekpanda.redirectme.net/about" },
+          { name: "Home", url: "https://pandaabhishek.vercel.app/" },
+          { name: "About", url: "https://pandaabhishek.vercel.app/about" },
         ]}
       />
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://abhishekpanda.redirectme.net/" },
-          { name: "About", url: "https://abhishekpanda.redirectme.net/about" },
+          { name: "Home", url: "https://pandaabhishek.vercel.app/" },
+          { name: "About", url: "https://pandaabhishek.vercel.app/about" },
         ]}
       />
       <main className="relative min-h-screen bg-[#05070A] overflow-hidden text-white px-4 sm:px-6 py-10">
@@ -258,48 +258,23 @@ export default function About() {
               "
               >
                 <p>
-                  I'm Completed my MBA with a specialization in Finance, driven by a passion for
-                  understanding how markets work and how strategic financial decisions shape the business world.
+                  I completed my Master of Business Administration (MBA) with a specialization in Finance and Analytics, driven by a deep-seated passion for understanding how markets operate and how strategic financial choices guide the modern business world. My interest in finance was sparked during my Bachelor of Commerce in Accountancy, where I realized I had a strong aptitude for numerical analysis, corporate reporting, and valuation. This academic curiosity quickly turned into a dedicated professional path centered on investment research, corporate finance, and strategic asset management.
                 </p>
 
                 <p>
-                  My journey into finance began during my Bachelor's in Commerce, where I discovered that I had a natural
-                  aptitude for quantitative analysis and strategic thinking. What started as academic curiosity quickly
-                  evolved into a deep professional interest in investment research, portfolio management, and corporate finance.
+                  Today, I specialize in quantitative financial modeling, valuation, budgeting, and strategy formulation. I enjoy constructing detailed financial frameworks that evaluate risk, identify growth drivers, and support executive leadership in high-stakes environments. During my internship at Autoliv Limited, I had the privilege of working on variance analysis, reconciliation processes, budgeting, and forecasting. These hands-on experiences taught me how to align operational metrics with corporate objectives and showed me the concrete impact of financial planning on business sustainability.
                 </p>
 
                 <p>
-                  Today, I specialize in financial modeling, data-driven investment analysis, and business strategy.
-                  I enjoy building complex financial models that help uncover value, assess risk, and guide
-                  executive decision-making.
+                  Beyond standard corporate finance, I am highly interested in the intersection of technology and capital markets. I actively explore how big data, visual analytics, and quantitative techniques can improve asset allocation and risk modeling. My ultimate career objective is to step into a leadership or senior analyst position within investment banking, corporate strategy, or financial advisory, where I can steer capital allocation and help firms steer through complex macroeconomic landscapes.
                 </p>
 
                 <p>
-                  Throughout my internships at Autoliv Limietd, I've had the
-                  opportunity to work on Variance Analysis & Reconciliation Analysis, and financial Budgeting & Forecasting —
-                  experiences that have shaped my understanding of what it takes to drive business growth.
+                  In my spare time, I actively follow global economic news, analyze corporate earnings reports, and participate in financial markets to test my investment theories. I am also committed to continuous professional growth, seeking additional credentials like the CFA to keep my skills sharp. I believe that in the financial sector, staying curious and adaptable is key to navigating volatility and finding hidden opportunities.
                 </p>
 
                 <p>
-                  I'm particularly interested in the intersection of finance and technology, especially how data
-                  analytics and AI are transforming investment management and risk assessment.
-                </p>
-
-                <p>
-                  My aim is to step into a leadership role in investment banking
-                  or corporate strategy, where I can apply my skills to high-impact financial decisions and
-                  help organizations navigate complex market environments.
-                </p>
-
-                <p>
-                  I know there's still so much to learn, and that's what excites me most about this field.
-                  Every market movement tells a story, and I want to be someone who can read, interpret,
-                  and act on those stories.
-                </p>
-
-                <p>
-                  For me, finance is not just a career — it's a lens through which I see and understand
-                  the world of business, growth, and value creation.
+                  For me, finance is not just a career; it is a vital lens to interpret business health, foster capital appreciation, and create long-term economic value. Every market movement tells a story, and I want to be someone who can read, interpret, and act on those stories.
                 </p>
               </div>
             </div>
