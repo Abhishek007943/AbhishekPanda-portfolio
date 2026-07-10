@@ -38,8 +38,8 @@
       "destination": "/robots.txt"
     },
     {
-      "source": "/((?!api/|assets/|favicon\\..*$).*)",
-      "destination": "/index.html"
+      "source": "/(.*)",
+      "destination": "/"
     }
   ]
 }
