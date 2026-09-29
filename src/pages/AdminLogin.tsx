@@ -7,15 +7,24 @@ export default function AdminLogin() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const adminPass = import.meta.env.VITE_ADMIN_PASS;
-    
-    if (adminPass && password === adminPass) {
-      localStorage.setItem('adminAuth', 'true');
-      navigate('/admin/dashboard');
-    } else {
-      setError('Invalid password');
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password })
+      });
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        localStorage.setItem('adminAuth', 'true');
+        navigate('/admin/dashboard');
+      } else {
+        setError(data.error || 'Invalid password');
+      }
+    } catch (err) {
+      setError('Login failed. (Are you running via Vercel CLI locally?)');
     }
   };
 
