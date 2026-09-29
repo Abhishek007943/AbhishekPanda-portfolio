@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
+import { usePortfolio } from "../context/PortfolioContext";
 
 const BandCard = lazy(() => import("./BandCard"));
 
 export default function BusinessStrategySection() {
+  const { data } = usePortfolio();
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { amount: 0.4 });
   const cardRef = useRef<HTMLDivElement>(null);
@@ -181,10 +183,9 @@ export default function BusinessStrategySection() {
     bg-[length:200%_auto]
     bg-gradient-to-r
     from-white via-white/60 to-white
-    animate-[shine_4s_linear_infinite]"
+    animate-[shine_4s_linear_infinite] whitespace-pre-line"
         >
-          Driving financial strategy through data-driven analysis, investment research, and strategic leadership.
-          Transforming complex markets into actionable insights.
+          {data.strategy?.description}
         </motion.p>
 
         <motion.div
@@ -193,7 +194,7 @@ export default function BusinessStrategySection() {
           transition={{ duration: 1, delay: 0.8 }}
           className="mt-6 flex flex-wrap gap-4"
         >
-          {["Financial Modeling", "Excel & Power BI", "Python", "Portfolio Management", "Project Management"].map((skill) => (
+          {data.strategy?.skills?.map((skill) => (
             <div
               key={skill}
               className="

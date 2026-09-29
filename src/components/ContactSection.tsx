@@ -33,9 +33,13 @@ function LiveChart() {
 }
 
 
+import { usePortfolio } from "../context/PortfolioContext";
+
 export default function ContactSection() {
+    const { data } = usePortfolio();
     const [form, setForm] = useState({
         name: "",
+        email: "",
         message: "",
     });
 
@@ -53,7 +57,7 @@ export default function ContactSection() {
     };
 
     const handleSend = async () => {
-        if (!form.name || !form.message || sending) return;
+        if (!form.name || !form.email || !form.message || sending) return;
 
         setSending(true);
 
@@ -62,9 +66,13 @@ export default function ContactSection() {
                 "https://formsubmit.co/ajax/abhishek.panda119955@gmail.com",
                 {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
                     body: JSON.stringify({
                         name: form.name,
+                        email: form.email,
                         message: form.message,
                     }),
                 }
@@ -72,7 +80,7 @@ export default function ContactSection() {
 
             if (res.ok) {
                 setSent(true);
-                setForm({ name: "", message: "" });
+                setForm({ name: "", email: "", message: "" });
                 setTimeout(() => setSent(false), 4000);
             }
         } catch {
@@ -295,7 +303,7 @@ export default function ContactSection() {
 
                             {/* email */}
                             <a
-                                href="https://mail.google.com/mail/?view=cm&fs=1&to=abhishek.panda119955@gmail.com&su=Inquiry%20from%20Portfolio"
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=panda.abhishek119955@gmail.com&su=Inquiry%20from%20Portfolio"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group relative w-12 h-12 sm:w-14 sm:h-14 rounded-2xl
@@ -464,6 +472,28 @@ export default function ContactSection() {
                                         />
                                     </div>
 
+                                    {/* email input */}
+                                    <div className="relative group/input mt-4">
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={form.email}
+                                            onChange={handleChange}
+                                            placeholder="Your Email"
+                                            className="w-full h-14 px-6 rounded-[16px]
+                                            bg-white/[0.03] backdrop-blur-2xl
+                                            shadow-[inset_0_1px_1px_rgba(0,191,255,0.04)]
+                                            hover:shadow-[0_0_20px_rgba(0,191,255,0.05)]
+                                            border border-white/10
+                                            group-hover/input:border-white/20
+                                            text-white placeholder:text-white/20
+                                            outline-none transition-all duration-300
+                                            focus:border-[#00BFFF]/30
+                                            focus:shadow-[0_0_20px_rgba(0,191,255,0.05)]
+                                            font-medium"
+                                        />
+                                    </div>
+
                                     {/* textarea */}
                                     <div className="relative group/textarea">
                                         <textarea
@@ -489,7 +519,7 @@ export default function ContactSection() {
                                     {/* button */}
                                     <button
                                         onClick={handleSend}
-                                        disabled={!form.name || !form.message}
+                                        disabled={!form.name || !form.email || !form.message}
                                         className="group/btn relative overflow-hidden
                                         w-full h-12 rounded-[16px] mt-6
                                         bg-gradient-to-r from-[#00BFFF] to-[#37D5FF]

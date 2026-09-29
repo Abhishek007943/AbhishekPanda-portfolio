@@ -15,6 +15,9 @@ import { Routes, Route, useNavigate, Link, useLocation } from "react-router-dom"
 import About from "./pages/About";
 import SeoHead from "@/components/SeoHead";
 import { PersonSchema, WebsiteSchema, WebPageSchema } from "@/components/JsonLd";
+import { usePortfolio } from "./context/PortfolioContext";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,6 +33,7 @@ const logos = [
 ];
 
 export default function App() {
+  const { data } = usePortfolio();
   const location = useLocation();
   const [showWelcome, setShowWelcome] = useState(true);
   const [time, setTime] = useState("");
@@ -42,7 +46,7 @@ export default function App() {
   const descRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
-  const text = "Abhishek";
+  const text = data.hero.name;
   const [displayed, setDisplayed] = useState("");
   const [colorMode, setColorMode] = useState(0);
   const [hoveredLetter, setHoveredLetter] = useState<{ index: number; source: string } | null>(null);
@@ -403,7 +407,7 @@ export default function App() {
                       className={`font-display uppercase leading-[0.85] tracking-[-0.03em] text-[14vw] 
 sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16 sm:-ml-24 md:-ml-160 ${colors[colorMode]}`}
                     >
-                      {"PANDA".split("").map((ch, i) => (
+                      {data.hero.lastName.split("").map((ch, i) => (
                         <span
                           key={i}
                           className="relative inline-block hover:scale-110 transition-transform duration-200"
@@ -426,11 +430,8 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
     leading-relaxed max-w-lg
     font-[Poppins] font-semibold
     tracking-wide
-    text-white drop-shadow-[0_0_15px_rgba(0,191,255,0.3)]">
-                      Building Empires. {" "} <br />
-                      <em className="not-italic text-[#D4AF37] drop-shadow-[0_0_10px_rgba(212,175,55,0.4)]">
-                        Creating Legacies.
-                      </em>
+    text-white drop-shadow-[0_0_15px_rgba(0,191,255,0.3)] whitespace-pre-line">
+                      {data.hero.description}
                     </p>
 
                     <div className="flex flex-wrap items-center gap-3 p-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
@@ -499,24 +500,18 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
                   <div className="w-full md:w-2/3 space-y-6">
                     <div className="flex items-center gap-4">
                       <div className="h-px w-10 bg-gradient-to-r from-[#00BFFF] to-transparent" />
-                      <span className="text-[10px] uppercase tracking-[0.4em] text-[#00BFFF] font-mono">Professional Profile</span>
+                      <span className="text-[10px] uppercase tracking-[0.4em] text-[#00BFFF] font-mono">{data.about.title}</span>
                     </div>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
-                      Abhishek Panda
+                      {data.about.name}
                     </h1>
                     <h2 className="text-xl md:text-2xl font-semibold text-[#D4AF37] font-[Poppins]">
-                      MBA Finance Professional
+                      {data.about.role}
                     </h2>
                     <div className="text-white/70 text-base leading-relaxed space-y-4 font-sans font-normal tracking-wide">
-                      <p>
-                        <strong>Abhishek Panda</strong> is an ambitious and results-driven MBA Finance professional who blends quantitative analytical skills with strategic business insights. With a strong academic background comprising a Bachelor of Commerce in Accountancy and an MBA specializing in Finance and Analytics, <strong>Abhishek Panda</strong> has built a comprehensive understanding of corporate finance, asset valuation, investment management, and macroeconomic analysis. Over the course of his professional preparation, he has developed deep expertise in financial modeling, forecasting, variance analysis, and market research. He is highly proficient in leveraging analytical tools like advanced Microsoft Excel, Power BI, Python, and SQL to translate complex financial datasets into actionable business recommendations.
-                      </p>
-                      <p>
-                        Throughout his career, <strong>Abhishek Panda</strong> has focused on how sound financial decisions drive corporate strategy and stakeholder value. His practical experience is backed by a finance internship at Autoliv Limited, where he actively contributed to financial reporting, budgeting, reconciliation, and variance analysis. This role allowed him to apply corporate finance theories directly to operational business scenarios, enhancing his ability to identify cost-saving opportunities and efficiency improvements. As a finance analyst and strategy enthusiast, <strong>Abhishek Panda</strong> continuously monitors global financial markets, emerging fintech trends, and corporate restructurings to stay at the forefront of the industry.
-                      </p>
-                      <p>
-                        Looking ahead, the primary career goal of <strong>Abhishek Panda</strong> is to secure a challenging role in investment banking, corporate strategy, or financial advisory, where he can assist companies in making high-stakes decisions such as capital allocation, mergers and acquisitions, and risk management. By joining a forward-looking financial institution or corporate development team, <strong>Abhishek Panda</strong> aims to apply his financial acumen and analytical rigor to solve complex business challenges. Driven by a commitment to continuous learning and professional excellence, he is dedicated to delivering high-impact value and fostering sustainable business growth.
-                      </p>
+                      {data.about.paragraphs.map((p, idx) => (
+                        <p key={idx} dangerouslySetInnerHTML={{ __html: p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+                      ))}
                     </div>
                     <div className="pt-4">
                       <Link
@@ -611,43 +606,32 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
                   </h2>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Executive MBA */}
-                    <div className="group relative rounded-2xl border border-white/15 overflow-hidden bg-white/[0.06] hover:border-[#00BFFF]/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#00BFFF]/10 backdrop-blur-md p-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00BFFF]/20 to-transparent border border-[#00BFFF]/20 flex items-center justify-center text-[#00BFFF] text-lg font-bold">MFA</div>
-                        <span className="text-[10px] uppercase tracking-[0.2em] text-green-400 px-2 py-1 rounded-full bg-green-400/10 border border-green-400/20">Completed</span>
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-1">MBA in Financial & Analytic</h3>
-                      <p className="text-sm text-white/60 mb-3">Centurion University of Technology and Management(CUTM) · 2024 – 2026</p>
-                      <div className="flex items-center gap-4 text-xs text-white/50 mb-4">
-                        <span className="flex items-center gap-1">📊 CGPA: 8.5/10</span>
-                        <span className="flex items-center gap-1">🏆 Dean's List</span>
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {["Corporate Finance", "Investment Mgmt", "Strategic Leadership", "Mergers & Acquisitions"].map(s => (
-                          <span key={s} className="text-[10px] px-2.5 py-1 rounded-full border border-[#00BFFF]/20 text-[#00BFFF] bg-[#00BFFF]/5">{s}</span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Bachelor of Commerce */}
-                    <div className="group relative rounded-2xl border border-white/15 overflow-hidden bg-white/[0.06] hover:border-[#D4AF37]/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#D4AF37]/10 backdrop-blur-md p-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#D4AF37]/20 to-transparent border border-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] text-lg font-bold">BC</div>
-                        <span className="text-[10px] uppercase tracking-[0.2em] text-green-400 px-2 py-1 rounded-full bg-green-400/10 border border-green-400/20">Completed</span>
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-1">Bachelor of Commerce (Accountancy)</h3>
-                      <p className="text-sm text-white/60 mb-3">Jupiter Degree College · 2020 – 2023</p>
-                      <div className="flex items-center gap-4 text-xs text-white/50 mb-4">
-                        <span className="flex items-center gap-1">📊 GPA: 7.99/10</span>
-                        <span className="flex items-center gap-1">🎓 Distinction</span>
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {["Financial Accounting", "Corporate Finance", "Economics", "Quantitative Methods"].map(s => (
-                          <span key={s} className="text-[10px] px-2.5 py-1 rounded-full border border-[#D4AF37]/20 text-[#D4AF37] bg-[#D4AF37]/5">{s}</span>
-                        ))}
-                      </div>
-                    </div>
+                    {data.education?.degrees.map((deg, index) => {
+                      const isGold = deg.color === "gold";
+                      const hoverClass = isGold ? "hover:border-[#D4AF37]/40 hover:shadow-[#D4AF37]/10" : "hover:border-[#00BFFF]/40 hover:shadow-[#00BFFF]/10";
+                      const iconBg = isGold ? "from-[#D4AF37]/20 border-[#D4AF37]/20 text-[#D4AF37]" : "from-[#00BFFF]/20 border-[#00BFFF]/20 text-[#00BFFF]";
+                      const badgeClass = isGold ? "border-[#D4AF37]/20 text-[#D4AF37] bg-[#D4AF37]/5" : "border-[#00BFFF]/20 text-[#00BFFF] bg-[#00BFFF]/5";
+                      
+                      return (
+                        <div key={index} className={`group relative rounded-2xl border border-white/15 overflow-hidden bg-white/[0.06] transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl backdrop-blur-md p-6 ${hoverClass}`}>
+                          <div className="flex items-start justify-between mb-4">
+                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br to-transparent border flex items-center justify-center text-lg font-bold ${iconBg}`}>{deg.abbr}</div>
+                            <span className="text-[10px] uppercase tracking-[0.2em] text-green-400 px-2 py-1 rounded-full bg-green-400/10 border border-green-400/20">Completed</span>
+                          </div>
+                          <h3 className="text-xl font-bold text-white mb-1">{deg.title}</h3>
+                          <p className="text-sm text-white/60 mb-3">{deg.institution} · {deg.years}</p>
+                          <div className="flex items-center gap-4 text-xs text-white/50 mb-4">
+                            <span className="flex items-center gap-1">📊 {deg.scoreLabel}</span>
+                            <span className="flex items-center gap-1">🏆 {deg.award}</span>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {deg.skills.map(s => (
+                              <span key={s} className={`text-[10px] px-2.5 py-1 rounded-full border ${badgeClass}`}>{s}</span>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
 
                     {/* Certifications */}
                     <div className="group relative rounded-2xl border border-white/15 overflow-hidden bg-white/[0.06] hover:border-[#37D5FF]/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#37D5FF]/10 backdrop-blur-md p-6 md:col-span-2">
@@ -655,38 +639,8 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#37D5FF]/20 to-transparent border border-[#37D5FF]/20 flex items-center justify-center text-[#37D5FF] text-sm font-bold">📜</div>
                         <h3 className="text-lg font-bold text-white">Certifications & Skills</h3>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        {[
-                          { title: "Internship in Finance", issuer: "Autoliv Ltd", year: "2025" },
-                          { title: "IFRS", issuer: "Udemy", year: "2026" },
-                          { title: "US GAAP", issuer: "Udemy", year: "2026" },
-                        ].map((cert, i) => (
-                          <div key={i} className="p-4 rounded-xl bg-white/[0.04] border border-white/10 hover:border-white/20 transition-all">
-                            <p className="text-sm font-semibold text-white mb-1">{cert.title}</p>
-                            <p className="text-xs text-white/50">{cert.issuer} · {cert.year}</p>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-                        {[
-                          { title: "Lean Fundamental Certified", issuer: "LeanPM.org", year: "2025" },
-                          { title: "Lean Project Management (yellow belt)", issuer: "LeanPM.org", year: "2025" },
-                          { title: "BLOOMBERG INTERMEDIATE", issuer: "COURSERA", year: "2026" },
-
-
-                        ].map((cert, i) => (
-                          <div key={i} className="p-4 rounded-xl bg-white/[0.04] border border-white/10 hover:border-white/20 transition-all">
-                            <p className="text-sm font-semibold text-white mb-1">{cert.title}</p>
-                            <p className="text-xs text-white/50">{cert.issuer} · {cert.year}</p>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-                        {[
-                          { title: "Mastering Web3 (Introductory Track)", issuer: "University of Nicosia", year: "2026" },
-                          { title: "DATA ANALYSIS FOR COMMERCE STUDENTS COURSE", issuer: "YOUNITY", year: "2023" },
-
-                        ].map((cert, i) => (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {data.education?.certifications.map((cert, i) => (
                           <div key={i} className="p-4 rounded-xl bg-white/[0.04] border border-white/10 hover:border-white/20 transition-all">
                             <p className="text-sm font-semibold text-white mb-1">{cert.title}</p>
                             <p className="text-xs text-white/50">{cert.issuer} · {cert.year}</p>
@@ -697,12 +651,7 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
 
                     {/* Quick Stats */}
                     <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                      {[
-                        { label: "Courses Completed", value: "10+" },
-                        { label: "Avg. GPA", value: "9.7" },
-                        { label: "Certifications", value: "7" },
-                        { label: "Finance Projects", value: "12+" },
-                      ].map((stat, i) => (
+                      {data.education?.stats.map((stat, i) => (
                         <div key={i} className="p-4 rounded-xl bg-white/[0.04] border border-white/10 text-center">
                           <p className="text-2xl font-bold text-[#00BFFF] mb-1">{stat.value}</p>
                           <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">{stat.label}</p>
@@ -755,6 +704,8 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
             <About />
           </motion.div>
         } />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
     </AnimatePresence>
 

@@ -3,8 +3,10 @@ import { ArrowLeft, Download } from "lucide-react";
 import { useEffect, useState } from "react";
 import SeoHead from "@/components/SeoHead";
 import { BreadcrumbSchema, WebPageSchema } from "@/components/JsonLd";
+import { usePortfolio } from "../context/PortfolioContext";
 
 export default function About() {
+  const { data } = usePortfolio();
   const text = "About Myself";
 
   const [displayedText, setDisplayedText] = useState("");
@@ -258,25 +260,9 @@ export default function About() {
                 space-y-6
               "
               >
-                <p>
-                  I completed my Master of Business Administration (MBA) with a specialization in Finance and Analytics, driven by a deep-seated passion for understanding how markets operate and how strategic financial choices guide the modern business world. My interest in finance was sparked during my Bachelor of Commerce in Accountancy, where I realized I had a strong aptitude for numerical analysis, corporate reporting, and valuation. This academic curiosity quickly turned into a dedicated professional path centered on investment research, corporate finance, and strategic asset management.
-                </p>
-
-                <p>
-                  Today, I specialize in quantitative financial modeling, valuation, budgeting, and strategy formulation. I enjoy constructing detailed financial frameworks that evaluate risk, identify growth drivers, and support executive leadership in high-stakes environments. During my internship at Autoliv Limited, I had the privilege of working on variance analysis, reconciliation processes, budgeting, and forecasting. These hands-on experiences taught me how to align operational metrics with corporate objectives and showed me the concrete impact of financial planning on business sustainability.
-                </p>
-
-                <p>
-                  Beyond standard corporate finance, I am highly interested in the intersection of technology and capital markets. I actively explore how big data, visual analytics, and quantitative techniques can improve asset allocation and risk modeling. My ultimate career objective is to step into a leadership or senior analyst position within investment banking, corporate strategy, or financial advisory, where I can steer capital allocation and help firms steer through complex macroeconomic landscapes.
-                </p>
-
-                <p>
-                  In my spare time, I actively follow global economic news, analyze corporate earnings reports, and participate in financial markets to test my investment theories. I am also committed to continuous professional growth, seeking additional credentials like the CFA to keep my skills sharp. I believe that in the financial sector, staying curious and adaptable is key to navigating volatility and finding hidden opportunities.
-                </p>
-
-                <p>
-                  For me, finance is not just a career; it is a vital lens to interpret business health, foster capital appreciation, and create long-term economic value. Every market movement tells a story, and I want to be someone who can read, interpret, and act on those stories.
-                </p>
+                {data.aboutPage?.paragraphs.map((p, idx) => (
+                  <p key={idx}>{p}</p>
+                ))}
               </div>
             </div>
           </motion.div>
