@@ -149,7 +149,7 @@ export default function About() {
             "
             >
               <img
-                src="/scroll-animation/ezgif-frame-100.png"
+                src="/scroll-animation/ezgif-frame-100.webp"
                 alt="Abhishek Panda - MBA Finance candidate"
                 className="w-full h-full object-cover"
                 loading="lazy"

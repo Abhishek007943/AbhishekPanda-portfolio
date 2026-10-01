@@ -20,7 +20,7 @@ export default function ScrollCanvas({
     const imgs: HTMLImageElement[] = [];
     for (let i = 0; i < TOTAL_FRAMES; i++) {
       const img = new Image();
-      img.src = `${FRAME_PATH}${String(i + 1).padStart(3, "0")}.png`;
+      img.src = `${FRAME_PATH}${String(i + 1).padStart(3, "0")}.webp`;
       imgs.push(img);
     }
     imagesRef.current = imgs;

@@ -526,7 +526,7 @@ sm:text-[16vw] md:text-[10vw] lg:text-[10rem] transition-all duration-300 -ml-16
                   <div className="w-full md:w-1/3 flex justify-center">
                     <div className="relative group p-1 rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl max-w-[280px]">
                       <img
-                        src="/scroll-animation/ezgif-frame-100.png"
+                        src="/scroll-animation/ezgif-frame-100.webp"
                         alt="Abhishek Panda"
                         className="rounded-2xl w-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                       />
